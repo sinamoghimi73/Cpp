@@ -43,23 +43,23 @@ g++ -Wall -std=c++17 main.cpp -o run
 It makes an executable file called `run`. Then you can run your code by writing `./run` .
 It might be confusing so let's go a little further and make an alias for it! In order to generalize it for any file names, we need to alias only the first part!
 
-`echo 'alias cpp="g++ -Wall -std=c++17"' >> ~/.bashrc`, or `~/.zshrc`for those who use `ZSH`. Our command would be like: `cpp main.cpp`. But we need it to make an executable file as well!!!
+`echo 'alias cpp="g++ -Wall -std=c++17"' >> ~/.zshrc`. Our command would be like: `cpp main.cpp`. But we need it to make an executable file as well!!!
 
 ***`alias` might not be able to do that!***
 
 ***We need to turn it into a function. How?***
 
-`echo 'gpp (){g++ -Wall -std=c++17 "$@" -o run;}' >> ~/.bashrc`
+`echo 'gpp (){g++ -Wall -std=c++17 "$@" -o run;}' >> ~/.zshrc`
 
 Now, it can Compile the source file and make an executable file as well. Yet, let's go a little further and tell it to show you the result! We should add `&& ./run` to the end of our function.
 
-`echo 'gpp (){g++ -Wall -std=c++17 "$@" -o run && ./run;}' >> ~/.bashrc`
+`echo 'gpp (){g++ -Wall -std=c++17 "$@" -o run && ./run;}' >> ~/.zshrc`
 
 well, until now we made executable file, you might find another file named `a.out`.
 
 we might benefit cleaning our object files. In this case we should add a little exra commands to perfect our compile and build process!
 
-`echo 'gpp (){rm -rf run a.out && g++ -Wall -std=c++17 "$@" -o run && ./run;}' >> ~/.bashrc`
+`echo 'gpp (){rm -rf run a.out && g++ -Wall -std=c++17 "$@" -o run && ./run;}' >> ~/.zshrc`
 
 Now, write:
 
